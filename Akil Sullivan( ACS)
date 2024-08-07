@@ -5,3 +5,120 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/akilsull04/Guidebook.git
 git push -u origin main
+pip install flask
+guidebook/
+    ├── templates/
+    │   ├── base.html
+    │   ├── index.html
+    │   ├── chapter1.html
+    │   ├── chapter2.html
+    │   ├── chapter3.html
+    │   ├── chapter4.html
+    │   ├── chapter5.html
+    │   └── chapter6.html
+    ├── static/
+    ├── app.py
+
+app.py
+python
+Copy code
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/chapter1')
+def chapter1():
+    return render_template('chapter1.html')
+
+@app.route('/chapter2')
+def chapter2():
+    return render_template('chapter2.html')
+
+@app.route('/chapter3')
+def chapter3():
+    return render_template('chapter3.html')
+
+@app.route('/chapter4')
+def chapter4():
+    return render_template('chapter4.html')
+
+@app.route('/chapter5')
+def chapter5():
+    return render_template('chapter5.html')
+
+@app.route('/chapter6')
+def chapter6():
+    return render_template('chapter6.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+templates/base.html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guidebook: How to Use Microsoft OneDrive Through Teams</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Guidebook: How to Use Microsoft OneDrive Through Teams</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('chapter1') }}">Chapter 1</a></li>
+                <li><a href="{{ url_for('chapter2') }}">Chapter 2</a></li>
+                <li><a href="{{ url_for('chapter3') }}">Chapter 3</a></li>
+                <li><a href="{{ url_for('chapter4') }}">Chapter 4</a></li>
+                <li><a href="{{ url_for('chapter5') }}">Chapter 5</a></li>
+                <li><a href="{{ url_for('chapter6') }}">Chapter 6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Guidebook. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+templates/index.html
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Introduction</h2>
+<p>Welcome to the guidebook on how to use Microsoft OneDrive through Teams.</p>
+<p>...</p>
+{% endblock %}
+templates/chapter1.html
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Chapter 1: Getting Started with Microsoft OneDrive and Teams</h2>
+<p>Introduction to Microsoft OneDrive</p>
+<p>...</p>
+<p>What is OneDrive?</p>
+<p>...</p>
+<p>Benefits of using OneDrive</p>
+<p>...</p>
+<p>Introduction to Microsoft Teams</p>
+<p>...</p>
+<p>What is Microsoft Teams?</p>
+<p>...</p>
+<p>Benefits of using Teams</p>
+<p>...</p>
+<p>Integrating OneDrive with Teams</p>
+<p>...</p>
+<p>How OneDrive and Teams work together</p>
+<p>...</p>
+<p>Setting up OneDrive within Teams</p>
+<p>...</p>
+{% endblock %}
