@@ -1,124 +1,185 @@
-echo "# Guidebook" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/akilsull04/Guidebook.git
-git push -u origin main
-pip install flask
-guidebook/
-    ├── templates/
-    │   ├── base.html
-    │   ├── index.html
-    │   ├── chapter1.html
-    │   ├── chapter2.html
-    │   ├── chapter3.html
-    │   ├── chapter4.html
-    │   ├── chapter5.html
-    │   └── chapter6.html
-    ├── static/
-    ├── app.py
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
 
-app.py
-python
-Copy code
-from flask import Flask, render_template
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
 
-app = Flask(__name__)
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #0779e4 3px solid;
+}
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+header h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 24px;
+}
 
-@app.route('/chapter1')
-def chapter1():
-    return render_template('chapter1.html')
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #0779e4;
+    padding: 10px;
+}
 
-@app.route('/chapter2')
-def chapter2():
-    return render_template('chapter2.html')
+nav a {
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
 
-@app.route('/chapter3')
-def chapter3():
-    return render_template('chapter3.html')
+nav a:hover {
+    background: #055cae;
+    color: #fff;
+}
 
-@app.route('/chapter4')
-def chapter4():
-    return render_template('chapter4.html')
+/* Main Content */
+main {
+    padding: 20px;
+    background: #fff;
+    margin-top: 20px;
+    border-radius: 5px;
+}
 
-@app.route('/chapter5')
-def chapter5():
-    return render_template('chapter5.html')
+main h2 {
+    color: #0779e4;
+    font-size: 22px;
+    margin-top: 0;
+}
 
-@app.route('/chapter6')
-def chapter6():
-    return render_template('chapter6.html')
+main h3 {
+    color: #333;
+    font-size: 18px;
+}
 
-if __name__ == '__main__':
-    app.run(debug=True)
-templates/base.html
-<!doctype html>
+main p {
+    margin-bottom: 20px;
+}
+
+main ul {
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+}
+
+main ul li {
+    background: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-left: 3px solid #0779e4;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #0779e4;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #055cae;
+    text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        text-align: center;
+        padding: 15px;
+    }
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guidebook: How to Use Microsoft OneDrive Through Teams</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Guidebook: How to Use Microsoft Tools</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
     <header>
-        <h1>Guidebook: How to Use Microsoft OneDrive Through Teams</h1>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('chapter1') }}">Chapter 1</a></li>
-                <li><a href="{{ url_for('chapter2') }}">Chapter 2</a></li>
-                <li><a href="{{ url_for('chapter3') }}">Chapter 3</a></li>
-                <li><a href="{{ url_for('chapter4') }}">Chapter 4</a></li>
-                <li><a href="{{ url_for('chapter5') }}">Chapter 5</a></li>
-                <li><a href="{{ url_for('chapter6') }}">Chapter 6</a></li>
-            </ul>
-        </nav>
+        <h1>Guidebook: How to Use Microsoft Teams, Excel, Word, and Outlook</h1>
     </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+
+    <nav>
+        <a href="#introduction">Introduction</a>
+        <a href="#chapter1">Chapter 1</a>
+        <a href="#chapter2">Chapter 2</a>
+        <a href="#chapter3">Chapter 3</a>
+        <a href="#chapter4">Chapter 4</a>
+        <a href="#chapter5">Chapter 5</a>
+        <a href="#chapter6">Chapter 6</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>Purpose of the Guidebook...</p>
+                <p>Overview of the Tools...</p>
+                <p>Who This Guidebook is For...</p>
+            </section>
+
+            <section id="chapter1">
+                <h2>Chapter 1: Getting Started with Microsoft Teams</h2>
+                <h3>Introduction to Microsoft Teams</h3>
+                <p>What is Microsoft Teams?</p>
+                <p>Benefits of Using Teams</p>
+            </section>
+
+            <section id="chapter2">
+                <h2>Chapter 2: Mastering Microsoft Excel</h2>
+                <h3>Introduction to Microsoft Excel</h3>
+                <p>What is Microsoft Excel?</p>
+                <p>Benefits of Using Excel</p>
+            </section>
+
+            <!-- Add more sections for the remaining chapters -->
+        </main>
+    </div>
+
     <footer>
         <p>&copy; 2024 Guidebook. All rights reserved.</p>
+        <p><a href="#top">Back to top</a></p>
     </footer>
 </body>
 </html>
-templates/index.html
-
-{% extends "base.html" %}
-
-{% block content %}
-<h2>Introduction</h2>
-<p>Welcome to the guidebook on how to use Microsoft OneDrive through Teams.</p>
-<p>...</p>
-{% endblock %}
-templates/chapter1.html
-
-{% extends "base.html" %}
-
-{% block content %}
-<h2>Chapter 1: Getting Started with Microsoft OneDrive and Teams</h2>
-<p>Introduction to Microsoft OneDrive</p>
-<p>...</p>
-<p>What is OneDrive?</p>
-<p>...</p>
-<p>Benefits of using OneDrive</p>
-<p>...</p>
-<p>Introduction to Microsoft Teams</p>
-<p>...</p>
-<p>What is Microsoft Teams?</p>
-<p>...</p>
-<p>Benefits of using Teams</p>
-<p>...</p>
-<p>Integrating OneDrive with Teams</p>
-<p>...</p>
-<p>How OneDrive and Teams work together</p>
-<p>...</p>
-<p>Setting up OneDrive within Teams</p>
-<p>...</p>
-{% endblock %}
